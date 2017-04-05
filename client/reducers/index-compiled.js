@@ -1,16 +1,14 @@
 import {combineReducers} from 'redux';
+import {reducer as form} from 'redux-form';
+import authReducer from './auth_reducer';
+import usersReducer from './users_reducer';
 
-import auth from './reducer_auth';
-import quotes from './reducer_quotes';
-
-// We combine the reducers here so that they
-// can be left split apart above
-
-var quotesApp = combineReducers({
-    auth: auth,
-    quotes: quotes
+var rootReducer = combineReducers({
+    form: form,
+    auth: authReducer,
+    users: usersReducer
 });
 
-export default quotesApp;
+export default rootReducer;
 
 //# sourceMappingURL=index-compiled.js.map

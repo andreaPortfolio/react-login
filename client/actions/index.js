@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 import {push} from 'react-router-redux'
-import {AUTH_USER, AUTH_ERROR, UNAUTH_USER} from './types'
+import {AUTH_USER, AUTH_ERROR, UNAUTH_USER, FETCH_USERS} from './types'
 
 //require('axios-debug')(axios);
 const ROOT_URL = 'http://localhost:3000';
@@ -66,7 +66,6 @@ export function signupUser({email, password}) {
     };
     return function (dispatch) {
 
-        console.log(email, password)
         axios.post(`${ROOT_URL}/api/Users`, data)
             .then(response => {
 
@@ -85,5 +84,30 @@ export function signupUser({email, password}) {
 
 
             });
+    }
+}
+
+
+export function getUsers() {
+    console.log(localStorage.getItem('token'))
+    return function (dispatch) {
+        axios.get(`${ROOT_URL}/api/tests`, {headers: {authorization: localStorage.getItem('token')}})
+            .then(response => {
+                dispatch({
+                    type: FETCH_USERS,
+                    payload: response.data
+                });
+                console.log('users', response.data)
+            }).catch(error => {
+            if (error.response) {
+                if (error.response.status === 422) {
+                    console.log(error.response.data.error.message);
+
+                }
+
+            }
+
+
+        });
     }
 }

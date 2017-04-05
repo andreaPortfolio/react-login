@@ -4,9 +4,9 @@
     "index.js"
   ],
   "names": [],
-  "mappings": "AAAA,SAAS,eAAT,QAAgC,OAAhC;;AAEA,OAAQ,IAAR,MAAkB,gBAAlB;AACA,OAAQ,MAAR,MAAoB,kBAApB;;AAGA;AACA;;AAEA,IAAM,YAAY,gBAAgB;AAChC,YADgC;AAEhC;AAFgC,CAAhB,CAAlB;;AAKA,eAAe,SAAf",
+  "mappings": "AAAA,SAAQ,eAAR,QAA8B,OAA9B;AACA,SAAQ,WAAW,IAAnB,QAA8B,YAA9B;AACA,OAAO,WAAP,MAAwB,gBAAxB;AACA,OAAO,YAAP,MAAyB,iBAAzB;;AAGA,IAAM,cAAc,gBAAgB;AAChC,cADgC;AAEhC,UAAM,WAF0B;AAGhC,WAAO;AAHyB,CAAhB,CAApB;;AAMA,eAAe,WAAf",
   "file": "index-compiled.js",
   "sourcesContent": [
-    "import { combineReducers } from 'redux'\n\nimport  auth from './reducer_auth';\nimport  quotes from './reducer_quotes';\n\n\n// We combine the reducers here so that they\n// can be left split apart above\n\nconst quotesApp = combineReducers({\n  auth,\n  quotes\n});\n\nexport default quotesApp"
+    "import {combineReducers} from 'redux';\nimport {reducer as form} from 'redux-form';\nimport authReducer from './auth_reducer';\nimport usersReducer from './users_reducer';\n\n\nconst rootReducer = combineReducers({\n    form,\n    auth: authReducer,\n    users: usersReducer\n});\n\nexport default rootReducer;\n"
   ]
 }

@@ -13,7 +13,7 @@ import SignOut from 'containers/Auth/signout.jsx';
 import SignUp from 'containers/Auth/signup.jsx';
 import RequiredAuth from 'containers/Auth/required_auth';
 import ProtectArea from 'components/protectArea.jsx';
-
+import {AUTH_USER} from './actions/types';
 
 import createHistory from 'history/createBrowserHistory'
 import {ConnectedRouter, routerReducer, routerMiddleware, push} from 'react-router-redux'
@@ -32,6 +32,10 @@ const middleware = routerMiddleware(history);
  );*/
 
 
+const token = localStorage.getItem('token');
+
+
+
 const store = createStore(
     combineReducers({
         reducers,
@@ -41,7 +45,12 @@ const store = createStore(
     applyMiddleware(reduxThunk)
 );
 
-//import 'index.html';
+if (token) {
+    store.dispatch({type: AUTH_USER});
+}
+
+
+
 
 
 ReactDOM.render(<Provider store={store}>

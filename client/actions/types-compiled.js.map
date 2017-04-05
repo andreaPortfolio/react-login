@@ -1,0 +1,12 @@
+{
+  "version": 3,
+  "sources": [
+    "types.js"
+  ],
+  "names": [],
+  "mappings": "AAAA,OAAO,IAAM,YAAY,WAAlB;AACP,OAAO,IAAM,cAAc,aAApB;AACP,OAAO,IAAM,aAAa,YAAnB;AACP,OAAO,IAAM,cAAc,aAApB",
+  "file": "types-compiled.js",
+  "sourcesContent": [
+    "export const AUTH_USER = 'auth_user';\nexport const UNAUTH_USER = 'unauth_user';\nexport const AUTH_ERROR = 'auth_error';\nexport const FETCH_USERS = 'fetch_users';\n"
+  ]
+}

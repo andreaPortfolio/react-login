@@ -1,0 +1,12 @@
+{
+  "version": 3,
+  "sources": [
+    "users_reducer.js"
+  ],
+  "names": [],
+  "mappings": ";;AAAA,SAAS,WAAT,QAA2B,kBAA3B;;AAEA,eAAe,YAA8B;AAAA,QAApB,KAAoB,uEAAZ,EAAY;AAAA,QAAR,MAAQ;;AACzC,YAAQ,OAAO,IAAf;AACI,aAAK,WAAL;AACI,gCAAW,KAAX,IAAkB,WAAW,OAA7B;;AAFR;;AAOA,WAAO,KAAP;AACH",
+  "file": "users_reducer-compiled.js",
+  "sourcesContent": [
+    "import { FETCH_USERS} from '../actions/types';\n\nexport default function (state = {}, action) {\n    switch (action.type) {\n        case FETCH_USERS:\n            return {...state, usersList: payload};\n\n\n    }\n\n    return state;\n}\n"
+  ]
+}
